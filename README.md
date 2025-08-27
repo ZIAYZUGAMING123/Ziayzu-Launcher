@@ -42,6 +42,23 @@ You can get MojoLauncher via three methods:
 ```
 (Replace `./gradlew` with `.\gradlew.bat` if you are building on Windows).
 
+### Local Nightly publishing (without GitHub Actions)
+If GitHub Actions is unavailable due to billing or limits, you can publish a nightly release locally using the GitHub CLI:
+
+1. Install prerequisites: JDK 17, Android SDK/NDK (NDK 28.2.13676358), and authenticate `gh`:
+```
+gh auth login
+```
+2. Run the publisher from the repo root:
+```
+scripts/publish_nightly.sh
+```
+3. Download links after completion:
+```
+https://github.com/<owner>/<repo>/releases/download/nightly/app-debug.apk
+https://github.com/<owner>/<repo>/releases/download/nightly/app-debug-noruntime.apk
+```
+
 ## Current roadmap
 - [x] Instance system in favor of profiles
 - [x] Out-of-the box 1.21.5 support
